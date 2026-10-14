@@ -1,33 +1,27 @@
-# TABU DENIM — Landing Old Money
+# TABU DENIM — Old Money Collection
 
-Landing de moda masculina para TABU DENIM, preparada para publicarse gratuitamente como sitio estático mediante **GitHub Pages**.
+Landing responsive de moda masculina con fotografías recuperadas de trabajos anteriores de TABU DENIM.
 
-## Publicar en GitHub Pages
+## Estado del sitio
+- Archivo principal: `index.html`.
+- 21 fotografías únicas integradas en el HTML (25 apariciones entre portada, catálogo y galería).
+- 14 fichas de catálogo con consultas por WhatsApp y selectores de talla y color.
+- Colecciones: camisas de lino, camisas de vestir, jeans premium, pantalones y bermudas.
+- Galería editorial con producciones visuales creadas en conversaciones anteriores.
+- WhatsApp comercial: +593 98 307 7517.
+- Envíos nacionales mediante Servientrega.
+- Pagos: transferencia, tarjeta, efectivo y contraentrega (según ciudad/pedido; confirmar condiciones).
 
-1. Abre **Settings → Pages** en este repositorio.
-2. En **Build and deployment**, selecciona **Deploy from a branch** como fuente.
-3. Escoge la rama **main** y la carpeta **/(root)**; pulsa **Save**.
-4. Consulta el enlace y el estado de publicación en esa misma pantalla cuando GitHub termine el despliegue.
+## Publicar con GitHub Pages
+En **Settings → Pages**, elegir **Deploy from a branch**, rama **main**, carpeta **/(root)** y guardar.
+URL prevista tras habilitar Pages: https://tabudenim6464-netizen.github.io/TABUDENIMEC/
 
-URL prevista al activar Pages: **https://tabudenim6464-netizen.github.io/TABUDENIMEC/** (no se confirma que esté activa hasta habilitar Pages).
+## Diseño y fotografías
+La landing actualmente incorpora las fotos directamente mediante imágenes embebidas, por lo que no necesita una carpeta `assets` para renderizarse. Existe una exportación alternativa en ZIP con imágenes JPEG optimizadas en archivos separados para futuras ediciones.
 
-## Contenido del proyecto
+Las imágenes de editorial son inspiracionales. Verificar siempre que cada imagen represente el producto comercializado y confirmar existencias, tonos reales, precios y tallas. No se infieren promociones ni disponibilidad.
 
-- `index.html`: landing completa, responsive, con filtros de catálogo, selector de tallas y colores, enlaces a WhatsApp y secciones de confianza, envíos y pagos.
-- `.nojekyll`: evita procesamiento con Jekyll.
+## Antes de lanzar anuncios
+Sustituir visuales que no coincidan exactamente con los artículos disponibles, comprobar precios y condiciones, y configurar Meta Pixel y políticas de privacidad cuando corresponda.
 
-## Datos configurados
-
-- WhatsApp: **+593 98 307 7517**.
-- Envíos nacionales mediante **Servientrega** (cobertura y tarifa por confirmar).
-- Pagos: transferencia, tarjeta, efectivo y contraentrega.
-- **Contraentrega:** depende de la ciudad o del pedido; confirmar condiciones por WhatsApp.
-
-## Pendientes antes de campañas publicitarias
-
-- Sustituir las fotografías ilustrativas de Pexels por fotografías propias y verificar derechos de uso de las imágenes.
-- Confirmar precios, stock, tallas, colores, promociones, tarifas de envío y tiempos.
-- Confirmar modalidades específicas de pago con tarjeta/efectivo y condiciones de cambios.
-- Agregar Pixel de Meta (cuando tengas su ID) y revisar política de privacidad si aplicara.
-
-Las fotografías ilustrativas y tipografías externas requieren conexión a Internet. La página no realiza cobros en línea: los botones envían consultas por WhatsApp.
+**Nota:** Los botones de compra consultan por WhatsApp. La página no procesa pagos online.
