@@ -72,8 +72,8 @@
   /* ---------- Tema claro / oscuro ---------- */
   var root = document.documentElement, themeBtn = $('#themeBtn'), metaTheme = $('#metaTheme');
   function applyTheme(t, animate) {
-    if (animate && !reduce) { root.classList.add('theming'); setTimeout(function () { root.classList.remove('theming'); }, 600); }
-    root.setAttribute('data-theme', t);
+    var set = function () { root.setAttribute('data-theme', t); };
+    if (animate && !reduce && document.startViewTransition) document.startViewTransition(set); else set();
     themeBtn.setAttribute('aria-label', t === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
     themeBtn.setAttribute('aria-pressed', String(t === 'dark'));
     if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0e1210' : '#f5f1e8');
