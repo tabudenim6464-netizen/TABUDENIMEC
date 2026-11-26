@@ -13,14 +13,15 @@
 
   /* ---------- Catálogo ---------- */
   var LINEN = ['30', '32', '34', '36', '38', '40', '42', '44'];
+  var TACT = ['28', '30', '32', '34', '36', '38', '40'];
   /* Más vendidos: ranking según conversaciones de WhatsApp iniciadas desde anuncios de Meta (cuenta Tabu Denim 71, histórico a nov. 2026). */
   var PRODUCTS = [
     { id: 'sastrero-lino', cat: 'pantalones', name: 'Pantalón sastrero de lino', kicker: 'Old Money tailoring', sub: 'Lino fresco · Corte sastre · Tallas 30–44', price: 39.99, img: 'editorial-balcon', sizes: LINEN, colors: [['Beige', '#cdb89a']], tag: 'Más vendido',
       best: 1, proof: 'Más de 1.500 consultas por WhatsApp', short: 'El pantalón que define el estilo Old Money: lino fresco y corte sastre con caída impecable.',
       desc: 'Pantalón sastrero en tela de lino: el estilo perfecto a la hora de vestir. Fresco, con pinzas y una caída elegante. Disponible de la talla 30 a la 44.', feats: ['Tela de lino', 'Corte sastre con pinzas', 'Tallas 30 a 44'] },
-    { id: 'tactico', cat: 'pantalones', name: 'Pantalón táctico TABU', kicker: 'Utility edit', sub: 'Resistente · Cómodo · Diseño premium', price: null, img: 'pantalon-tactico', svg: true, contain: true, sizes: PANT, colors: [['Negro', '#1b1b1b'], ['Beige', '#c8b48f'], ['Azul', '#1f2a4a']], tag: 'Más pedido',
+    { id: 'tactico', cat: 'pantalones', name: 'Pantalón táctico TABU', kicker: 'Utility edit', sub: 'Resistente · Cómodo · Tallas 28–40', price: 35, img: 'pantalon-tactico', svg: true, contain: true, sizes: TACT, colors: [['Negro', '#1b1b1b'], ['Beige', '#c8b48f'], ['Azul', '#1f2a4a']], tag: 'Más pedido',
       best: 2, proof: 'Más de 1.400 consultas por WhatsApp', short: 'Resistencia, comodidad y diseño premium para acompañarte en cualquier reto.',
-      desc: 'Los pantalones tácticos TABU DENIM combinan resistencia, comodidad y diseño premium. Fabricados con materiales de alta calidad para quienes exigen más de su ropa.', feats: ['Tela táctica resistente', 'Bolsillos cargo', 'Negro, beige y azul'] },
+      desc: 'Los pantalones tácticos TABU DENIM combinan resistencia, comodidad y diseño premium. Fabricados con materiales de alta calidad para quienes exigen más de su ropa.', feats: ['Tela táctica resistente', 'Bolsillos cargo', 'Tallas 28 a 40'] },
     { id: 'lino-elastico', cat: 'pantalones', name: 'Pantalón de lino con elástico', kicker: 'The linen edit', sub: 'Fresco para el clima · Tonos neutros', price: null, img: 'editorial-taburete', sizes: PANT, colors: [['Marrón', '#6b4a33']], tag: 'Top ventas',
       best: 3, proof: 'Más de 370 consultas por WhatsApp', short: 'Lino fresco con cintura elástica ultra cómoda, en tonos neutros que combinan con todo.',
       desc: 'El pantalón que no sabías que necesitabas para este clima: lino fresco, ajuste con elástico ultra cómodo y tonos neutros que combinan con absolutamente todo.', feats: ['Lino fresco', 'Cintura con elástico', 'Tonos neutros'] },
@@ -174,10 +175,40 @@
           '<p class="best-short">' + esc(p.short) + '</p>' +
           '<div class="best-foot"><span class="best-price">' + (p.price ? money(p.price) : 'Precio por consulta') + '</span>' +
           '<span class="dots">' + p.colors.map(function (c) { return '<span class="dot" style="background:' + c[1] + '" title="' + esc(c[0]) + '"></span>'; }).join('') + '</span></div>' +
-          '<button class="btn btn-dark full" type="button" data-open="' + p.id + '"><svg><use href="#i-bag"/></svg> Elegir talla</button>' +
+          '<div class="best-opts" data-id="' + p.id + '">' +
+            '<p class="best-lbl">Talla <span class="opt-err" hidden>Elige una talla</span></p>' +
+            '<div class="chips chips-sm" role="radiogroup" aria-label="Talla de ' + esc(p.name) + '" data-k="size">' + p.sizes.map(function (z) { return '<button type="button" class="chip" role="radio" aria-checked="false" data-val="' + z + '">' + z + '</button>'; }).join('') + '</div>' +
+            (p.colors.length > 1 ? '<p class="best-lbl">Color</p><div class="chips chips-sm" role="radiogroup" aria-label="Color de ' + esc(p.name) + '" data-k="color">' + p.colors.map(function (c, k) { return '<button type="button" class="chip" role="radio" aria-checked="' + (k === 0) + '" data-val="' + esc(c[0]) + '"><span class="dot" style="background:' + c[1] + '"></span>' + esc(c[0]) + '</button>'; }).join('') + '</div>' : '') +
+          '</div>' +
+          '<div class="best-actions"><button class="btn btn-dark grow" type="button" data-add="' + p.id + '"><svg><use href="#i-bag"/></svg> Agregar a la bolsa</button>' +
+          '<button class="best-wa" type="button" data-wa="' + p.id + '" aria-label="Pedir ' + esc(p.name) + ' por WhatsApp"><svg><use href="#i-wa"/></svg></button></div>' +
         '</div></li>';
     }).join('');
-    bestTrack.addEventListener('click', function (e) { var t = e.target.closest('[data-open]'); if (t) openQV(t.dataset.open, t); });
+    var pick = function (card) {
+      var size = $('[data-k="size"] [aria-checked="true"]', card), color = $('[data-k="color"] [aria-checked="true"]', card);
+      var p = byId[$('.best-opts', card).dataset.id];
+      return { p: p, size: size ? size.dataset.val : '', color: color ? color.dataset.val : p.colors[0][0] };
+    };
+    bestTrack.addEventListener('click', function (e) {
+      var chip = e.target.closest('.chip'), card = e.target.closest('.best-card');
+      if (chip) {
+        $$('.chip', chip.parentNode).forEach(function (x) { x.setAttribute('aria-checked', String(x === chip)); });
+        if (chip.parentNode.dataset.k === 'size') $('.opt-err', card).hidden = true;
+        return;
+      }
+      var add = e.target.closest('[data-add]'), w = e.target.closest('[data-wa]'), open = e.target.closest('[data-open]');
+      if (add) {
+        var s = pick(card);
+        if (!s.size) {
+          var g = $('[data-k="size"]', card); $('.opt-err', card).hidden = false;
+          g.classList.remove('shake'); void g.offsetWidth; g.classList.add('shake'); $('.chip', g).focus(); return;
+        }
+        addToBag(s.p.id, s.size, s.color, 1); toast(s.p.name + ' (talla ' + s.size + ') agregado', true);
+      } else if (w) {
+        var t = pick(card);
+        wa('Hola TABU DENIM, quiero pedir:\n\n• ' + t.p.name + '\n  Talla: ' + (t.size || ASK) + ' · Color: ' + t.color + (t.p.price ? '\n  Precio: ' + money(t.p.price) : '') + '\n\n¿Me confirman disponibilidad, envío y formas de pago?');
+      } else if (open) openQV(open.dataset.open, open);
+    });
     var prev = $('#bestPrev'), next = $('#bestNext'), dotsEl = $('#bestDots');
     var step = function () { var c = $('.best-card', bestTrack); return c ? c.getBoundingClientRect().width + 16 : 300; };
     dotsEl.innerHTML = bests.map(function () { return '<span></span>'; }).join('');
