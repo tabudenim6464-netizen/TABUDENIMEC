@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" width="900" height="1100">
+  <rect width="900" height="1100" fill="#efebe3"/>
+  <g fill="none" stroke="#2a2620" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- waistband -->
+    <path d="M318 150 H582 V192 H318 Z"/>
+    <path d="M352 150 v42 M420 150 v42 M480 150 v42 M548 150 v42" stroke-width="2"/>
+    <!-- legs -->
+    <path d="M318 192 L300 960 H428 L450 360 L472 960 H600 L582 192"/>
+    <!-- fly + crotch -->
+    <path d="M450 192 V360" />
+    <path d="M462 200 C462 270 458 320 450 360" stroke-width="2"/>
+    <!-- front pockets -->
+    <path d="M330 205 C365 215 385 245 392 290" stroke-width="2"/>
+    <path d="M570 205 C535 215 515 245 508 290" stroke-width="2"/>
+    <!-- cargo pockets -->
+    <path d="M318 470 H398 V610 H322 Z" fill="#e4ded2"/>
+    <path d="M318 470 H398 V500 H318" stroke-width="2"/>
+    <path d="M502 470 H582 L578 610 H502 Z" fill="#e4ded2"/>
+    <path d="M502 470 H582 V500 H502" stroke-width="2"/>
+    <!-- knee seams -->
+    <path d="M312 690 Q362 705 432 690 M468 690 Q538 705 588 690" stroke-width="1.6" stroke-dasharray="6 6"/>
+    <!-- cuffs -->
+    <path d="M302 920 H430 M470 920 H598" stroke-width="2"/>
+  </g>
+  <g>
+    <circle cx="395" cy="1030" r="15" fill="#1b1b1b"/>
+    <circle cx="450" cy="1030" r="15" fill="#c8b48f"/>
+    <circle cx="505" cy="1030" r="15" fill="#1f2a4a"/>
+  </g>
+</svg>

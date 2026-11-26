@@ -63,6 +63,7 @@
     <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav"><svg><use href="#i-menu"/></svg></button>
     <a class="logo" href="#inicio" aria-label="TABU DENIM, ir al inicio">TABU<span>DENIM</span></a>
     <nav class="nav" id="mainNav" aria-label="Menú principal">
+      <a href="#mas-vendidos">Más vendidos</a>
       <a href="#coleccion">Colección</a>
       <a href="#lookbook">Lookbook</a>
       <a href="#look">Arma tu look</a>
@@ -91,7 +92,7 @@
       <a class="btn btn-ghost" href="https://wa.me/593983077517?text=Hola%20TABU%20DENIM%2C%20quiero%20asesor%C3%ADa%20para%20elegir%20mi%20look." target="_blank" rel="noopener noreferrer"><svg><use href="#i-wa"/></svg> Asesoría directa</a>
     </div>
     <dl class="hero-stats">
-      <div><dt>14</dt><dd>piezas en catálogo</dd></div>
+      <div><dt>17</dt><dd>piezas en catálogo</dd></div>
       <div><dt>1</dt><dd>mensaje para pedir todo</dd></div>
       <div><dt>4</dt><dd>formas de pago</dd></div>
     </dl>
@@ -112,16 +113,37 @@
   </div>
 </section>
 
+
+<!-- BESTSELLERS (datos de Meta Ads) -->
+<section class="best section" id="mas-vendidos" aria-labelledby="best-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><p class="kicker">I — Los más vendidos</p><h2 id="best-title">Los favoritos <em>de Ecuador.</em></h2></div>
+      <p class="section-intro">Los modelos por los que más clientes nos escriben. Ranking según las consultas por WhatsApp generadas por nuestros anuncios, a noviembre de 2026.</p>
+    </div>
+  </div>
+  <div class="best-wrap">
+    <ol class="best-track" id="bestTrack" aria-label="Productos más vendidos"></ol>
+  </div>
+  <div class="wrap best-nav" id="bestNav">
+    <div class="best-dots" id="bestDots" aria-hidden="true"></div>
+    <div class="best-arrows">
+      <button class="icon-btn best-prev" id="bestPrev" type="button" aria-label="Producto anterior"><svg><use href="#i-arrow"/></svg></button>
+      <button class="icon-btn" id="bestNext" type="button" aria-label="Producto siguiente"><svg><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+</section>
+
 <!-- CATEGORIES -->
 <section class="section wrap" aria-labelledby="cat-title">
   <div class="section-head reveal">
-    <div><p class="kicker">I — Categorías</p><h2 id="cat-title">Elige por <em>ocasión.</em></h2></div>
+    <div><p class="kicker">II — Categorías</p><h2 id="cat-title">Elige por <em>ocasión.</em></h2></div>
     <p class="section-intro">Cuatro líneas esenciales, pensadas para combinarse entre sí. Toca una categoría para filtrar el catálogo.</p>
   </div>
   <div class="cats">
     <a class="cat cat-lg reveal" href="#coleccion" data-goto="lino"><img src="assets/img/editorial-taburete.webp" width="880" height="1100" alt="Camisa de lino crema con pantalón marrón" loading="lazy"><span class="cat-label"><small>The linen edit</small>Camisas de lino<svg><use href="#i-arrow"/></svg></span></a>
     <a class="cat reveal" href="#coleccion" data-goto="vestir"><img src="assets/img/editorial-terraza.webp" width="788" height="1400" alt="Camisa marrón de manga larga con pantalón beige" loading="lazy"><span class="cat-label"><small>Tailored</small>Camisas de vestir<svg><use href="#i-arrow"/></svg></span></a>
-    <a class="cat reveal" href="#coleccion" data-goto="denim"><img src="assets/img/jean-azul.webp" width="825" height="1100" alt="Jean premium azul" loading="lazy"><span class="cat-label"><small>Denim</small>Jeans y pantalones<svg><use href="#i-arrow"/></svg></span></a>
+    <a class="cat reveal" href="#coleccion" data-goto="pantalones"><img src="assets/img/editorial-balcon.webp" width="619" height="1100" alt="Pantalón sastrero de lino beige" loading="lazy"><span class="cat-label"><small>Más vendidos</small>Pantalones de lino<svg><use href="#i-arrow"/></svg></span></a>
     <a class="cat reveal" href="#coleccion" data-goto="bermudas"><img src="assets/img/editorial-muelle.webp" width="900" height="900" alt="Camisa blanca en un muelle junto al mar" loading="lazy"><span class="cat-label"><small>Utility</small>Bermudas cargo<svg><use href="#i-arrow"/></svg></span></a>
   </div>
 </section>
@@ -138,7 +160,7 @@
 <div class="ornament" aria-hidden="true"><span></span><i>T</i><span></span></div>
 <section class="section wrap" id="coleccion" aria-labelledby="col-title">
   <div class="section-head reveal">
-    <div><p class="kicker">II — Colección</p><h2 id="col-title">Piezas que <em>trascienden.</em></h2></div>
+    <div><p class="kicker">III — Colección</p><h2 id="col-title">Piezas que <em>trascienden.</em></h2></div>
     <p class="section-intro">Elige talla y color, agrégalas a tu bolsa y envía todo el pedido en un solo mensaje de WhatsApp.</p>
   </div>
   <div class="toolbar reveal">
@@ -172,7 +194,7 @@
 <section class="lookbook" id="lookbook" aria-labelledby="lb-title">
   <div class="wrap">
     <div class="section-head reveal light">
-      <div><p class="kicker">III — Lookbook</p><h2 id="lb-title">Estilo en <em>cada detalle.</em></h2></div>
+      <div><p class="kicker">IV — Lookbook</p><h2 id="lb-title">Estilo en <em>cada detalle.</em></h2></div>
       <p class="section-intro">Producciones editoriales del universo TABU DENIM. Toca una imagen para verla completa.</p>
     </div>
     <div class="lb-grid">
@@ -192,7 +214,7 @@
 <div class="ornament" aria-hidden="true"><span></span><i>T</i><span></span></div>
 <section class="section wrap builder" id="look" aria-labelledby="look-title">
   <div class="section-head reveal">
-    <div><p class="kicker">IV — Arma tu look</p><h2 id="look-title">El match <em>perfecto.</em></h2></div>
+    <div><p class="kicker">V — Arma tu look</p><h2 id="look-title">El match <em>perfecto.</em></h2></div>
     <p class="section-intro">Combina una camisa con un pantalón o bermuda y cotiza el conjunto en un solo mensaje.</p>
   </div>
   <div class="builder-body reveal">
@@ -218,7 +240,7 @@
 <section class="essence" aria-labelledby="ess-title">
   <figure class="essence-media"><img src="assets/img/editorial-piedra.webp" width="788" height="1400" alt="" loading="lazy"></figure>
   <div class="essence-copy reveal">
-    <p class="kicker">V — Nuestra esencia</p>
+    <p class="kicker">VI — Nuestra esencia</p>
     <h2 id="ess-title">Menos ruido.<br><em>Más estilo.</em></h2>
     <p>Creemos en una forma de vestir que permanece vigente más allá de las tendencias. Siluetas que se sienten bien, combinaciones atemporales y detalles que elevan lo cotidiano.</p>
     <ol class="pillars">
@@ -232,7 +254,7 @@
 <!-- HOW TO BUY -->
 <section class="section wrap" id="comprar" aria-labelledby="buy-title">
   <div class="section-head reveal">
-    <div><p class="kicker">VI — Cómo comprar</p><h2 id="buy-title">Tu estilo, <em>hasta tu puerta.</em></h2></div>
+    <div><p class="kicker">VII — Cómo comprar</p><h2 id="buy-title">Tu estilo, <em>hasta tu puerta.</em></h2></div>
     <p class="section-intro">Compra desde cualquier ciudad del Ecuador. Coordinamos todo por WhatsApp y enviamos con Servientrega.</p>
   </div>
   <ol class="steps">
@@ -258,7 +280,7 @@
 <section class="section faq-wrap" id="preguntas" aria-labelledby="faq-title">
   <div class="wrap faq">
     <div class="faq-head reveal">
-      <p class="kicker">VII — Preguntas</p>
+      <p class="kicker">VIII — Preguntas</p>
       <h2 id="faq-title">Todo lo que <em>necesitas saber.</em></h2>
       <p class="section-intro">¿No encuentras tu respuesta? Escríbenos y te atendemos personalmente.</p>
       <a class="btn btn-ghost" href="https://wa.me/593983077517?text=Hola%20TABU%20DENIM%2C%20tengo%20una%20consulta" target="_blank" rel="noopener noreferrer"><svg><use href="#i-wa"/></svg> Escribir a un asesor</a>
@@ -313,7 +335,7 @@
 <!-- Floating WhatsApp + mobile bar -->
 <a class="fab-wa" href="https://wa.me/593983077517?text=Hola%20TABU%20DENIM%2C%20tengo%20una%20consulta" target="_blank" rel="noopener noreferrer" aria-label="Chatea con TABU DENIM por WhatsApp"><svg><use href="#i-wa"/></svg></a>
 <div class="mobile-bar">
-  <a href="#coleccion" class="mb-link">Colección</a>
+  <a href="#mas-vendidos" class="mb-link">Más vendidos</a>
   <button type="button" class="mb-bag" id="mbBag"><svg><use href="#i-bag"/></svg> Mi bolsa <span id="mbCount">0</span></button>
 </div>
 
