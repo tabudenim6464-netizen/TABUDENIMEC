@@ -56,6 +56,34 @@
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
 
+  /* ---------- Tema claro / oscuro ---------- */
+  var root = document.documentElement, themeBtn = $('#themeBtn'), metaTheme = $('#metaTheme');
+  function applyTheme(t, animate) {
+    if (animate && !reduce) { root.classList.add('theming'); setTimeout(function () { root.classList.remove('theming'); }, 600); }
+    root.setAttribute('data-theme', t);
+    themeBtn.setAttribute('aria-label', t === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro');
+    themeBtn.setAttribute('aria-pressed', String(t === 'dark'));
+    if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0e1210' : '#f5f1e8');
+  }
+  applyTheme(root.getAttribute('data-theme') || 'light');
+  themeBtn.addEventListener('click', function () {
+    var t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(t, true);
+    try { localStorage.setItem('tabu-theme', t); } catch (e) {}
+  });
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  if (mq.addEventListener) mq.addEventListener('change', function (e) {
+    var saved = null; try { saved = localStorage.getItem('tabu-theme'); } catch (x) {}
+    if (!saved) applyTheme(e.matches ? 'dark' : 'light', true);
+  });
+
+  /* ---------- Intro ---------- */
+  var intro = $('#intro');
+  if (intro) {
+    if (root.classList.contains('no-intro') || reduce) intro.remove();
+    else { intro.addEventListener('animationend', function (e) { if (e.animationName === 'introOut') intro.remove(); }); setTimeout(function () { if (intro.parentNode) intro.remove(); }, 3200); }
+  }
+
   /* ---------- Header / menú ---------- */
   var header = $('#header'), nav = $('#mainNav'), menuBtn = $('#menuBtn');
   var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 40); };
